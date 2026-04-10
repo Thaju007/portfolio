@@ -1,0 +1,241 @@
+/* Karpathy style minimalist timeline */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    color: #111;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 40px 0 30px 0;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 30px;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #eaeaea;
+    margin: 0 auto 20px auto;
+    background-image: url('assets/dp.png');
+    background-size: cover;
+    background-position: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0 0 5px 0;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #555;
+    margin: 0 0 5px 0;
+}
+
+.location {
+    font-size: 15px;
+    color: #777;
+    margin: 0 0 15px 0;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+.social-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+#about p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    margin-left: 175px; /* Aligns roughly with timeline content */
+}
+
+/* Timeline Layout */
+.timeline {
+    position: relative;
+    margin-top: 30px;
+}
+
+/* The vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    bottom: 0;
+    left: 150px;
+    width: 1px;
+    background-color: #dcdcdc;
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    margin-bottom: 40px;
+    min-height: 50px;
+}
+
+.timeline-left {
+    width: 150px;
+    position: relative;
+    padding-right: 15px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.date {
+    display: inline-block;
+    color: #b0b0b0;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Timeline Dot */
+.dot {
+    position: absolute;
+    right: -5px; /* exactly on the line */
+    top: 9px;
+    width: 9px;
+    height: 9px;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+}
+
+/* Timeline Content */
+.timeline-content {
+    flex-grow: 1;
+    padding-left: 25px;
+}
+
+/* Content Header (Logo + Title) */
+.content-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.company-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    object-fit: contain;
+    background-color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.header-text-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.header-text-block strong {
+    font-size: 16px;
+    color: #111;
+}
+
+.timeline-content p {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: #222;
+}
+
+/* Projects Section */
+.projects-section {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #eaeaea;
+}
+
+.projects-section h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    margin-left: 175px; 
+}
+
+.project-box {
+    margin-bottom: 30px;
+    margin-left: 175px; /* aligns with text above */
+}
+
+.project-box h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.project-box ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 15.5px;
+}
+
+.project-box li {
+    margin-bottom: 5px;
+}
+
+/* Links */
+a {
+    color: #0000ff;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .timeline::before {
+        left: 20px;
+    }
+    .timeline-left {
+        width: 30px;
+        text-align: left;
+    }
+    .date {
+        display: none; /* Hide dates on mobile, or integrate them into right pane */
+    }
+    .dot {
+        right: auto;
+        left: 2px;
+    }
+    .timeline-content {
+        padding-left: 40px;
+    }
+    #about p, .projects-section h2, .project-box {
+        margin-left: 0;
+    }
+}
